@@ -41,18 +41,20 @@
 
 <main class="h-full w-full flex gap-5 flex-col p-6">
   <div class="top-0 sticky flex flex-col gap-4 bg-white">
-    <div class="text-xl self-center font-semibold">Poke Search</div>
+    <div class="text-xl self-center font-semibold">Pokemon Search</div>
 
     <input
       class="p-2 rounded outline-none border border-gray-300"
       placeholder="Search by name"
       bind:value={search}
+      data-testid="pokemon-search-input"
     />
   </div>
 
-  <div class="flex flex-col gap-2 mx-auto">
+  <div class="flex flex-col gap-2 mx-auto" data-testid="pokemon-list">
     {#each results as pokemon, i}
       <div
+        data-testid={`pokemon-item-${i}`}
         class="grid grid-cols-2 gap-2 p-2 items-center border border-gray-300"
       >
         <div class="text-lg font-semibold">#{i + 1} {pokemon.name}</div>
